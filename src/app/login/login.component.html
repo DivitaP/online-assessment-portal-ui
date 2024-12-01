@@ -1,0 +1,47 @@
+<!-- login.component.html -->
+<br><br>
+<div class="login-container">
+    <div class="login-card">
+      <h2 class="login-title">Login with OTP</h2>
+      <form>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+          type="email"
+          [(ngModel)]="email"
+          [ngModelOptions]="{standalone: true}" 
+          class="form-control" 
+          id="email" 
+          placeholder="Enter your email" 
+          required>
+        </div>
+        
+        <div class="form-group">
+          <label for="otp">OTP</label>
+          <input 
+          type="text"
+          [(ngModel)]="otp"
+          [ngModelOptions]="{standalone: true}"  
+          class="form-control" 
+          id="otp" 
+          placeholder="Enter your OTP" 
+          required maxlength="6">
+        </div>
+  
+        <button type="submit" class="btn btn-primary btn-block" (click)="submit()">Submit OTP</button>
+  
+        <!-- <div class="text-center mt-3">
+          <p class="resend-otp">
+            <a href="#">Resend OTP</a>
+          </p>
+        </div> -->
+  
+        <div class="text-center mt-4">
+          <p class="register-link">
+            Don't have an account? <a href="/student">Register Here</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+  

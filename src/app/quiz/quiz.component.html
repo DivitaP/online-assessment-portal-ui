@@ -1,0 +1,44 @@
+<div class="container mt-4">
+    <h2 class="text-center">Quiz</h2>
+    
+    <!-- Timer Display -->
+    <div class="alert alert-info text-center">
+      Time Remaining: {{ timer }} seconds
+    </div>
+  
+    <!-- Display Questions -->
+    <div *ngIf="questions.length > 0; else noQuestions">
+      <div *ngFor="let question of questions; let i = index" class="card mb-4">
+        <div class="card-header">
+          <strong>Question {{ i + 1 }}</strong>
+        </div>
+        <div class="card-body">
+          <p>{{ question.question }}</p>
+          <div *ngFor="let option of question.options; let j = index" class="form-check">
+            <input
+              type="radio"
+              [name]="'question' + i"
+              [value]="j"
+              [(ngModel)]="userAnswers[i]"
+              (change)="selectAnswer(i, j)"
+              class="form-check-input"
+            />
+            <label class="form-check-label">{{ option }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- No Questions Template -->
+    <ng-template #noQuestions>
+      <div class="alert alert-warning text-center">
+        No questions available. Please try again later.
+      </div>
+    </ng-template>
+  
+    <!-- Submit Button -->
+    <div class="text-center mt-3">
+      <button class="btn btn-success" (click)="submitQuiz()">Submit Quiz</button>
+    </div>
+  </div>
+  

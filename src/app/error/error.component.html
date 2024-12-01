@@ -1,0 +1,10 @@
+
+<div class="alert alert-danger mt-3" *ngIf="errorMessage">
+    <h4>Error</h4>
+    <p>{{ errorMessage }}</p>
+    <div *ngIf="errorDetails">
+      <small>{{ errorDetails }}</small>
+    </div>
+    <button class="btn btn-outline-light mt-2" (click)="resetError()">Try Again</button>
+  </div>
+  

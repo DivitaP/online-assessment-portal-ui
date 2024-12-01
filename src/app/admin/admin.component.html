@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>Admin Student Table</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <input
+              type="checkbox"
+              [(ngModel)]="selectAll"
+              (change)="toggleAllSelections()"
+              (ngModelChange)="updateSelectAllStatus()"
+            />
+          </th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Mobile</th>
+          <!-- <th scope="col">Quiz</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of StudentArray">
+          <td>
+            <input
+              type="checkbox"
+              [(ngModel)]="selectedStudents[student.email]"
+              (change)="updateSelectAllStatus()"
+            />
+          </td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.mobile }}</td>
+          <!-- <td>{{student.attemptedQuiz}}</td> -->
+          <!-- <td>
+            <button class="btn btn-primary" (click)="editStudent(student)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteStudent(student)">Delete</button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  
+    <button class="btn btn-primary" (click)="generateOTP()">Generate OTP</button>
+
+    
+      
+      
+  </div>
+  
